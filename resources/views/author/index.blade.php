@@ -95,11 +95,11 @@
                                                         @csrf
 
                                                         <a href="{{ route('author.edit', $data->id) }}"
-                                                            class="btn btn-succes float-right">Rubah</a>
+                                                            class="btn btn-success float-right">Rubah</a>
                                                         <a href="{{ route('author.show', $data->id) }}"
                                                             class="btn btn-warning float-right">Tampil</a>
-                                                        <button type="submit" class="bnt bnt-danger"
-                                                            onclick="return confirm('Apakah anda yaklin menghapus ini?');">Delete</button>
+                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
