@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Palo</title>
+    <title>Pelo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('backend/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -60,7 +60,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Author</h1>
+                        <h1 class="page-header">Books</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -68,8 +68,8 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Data Author
-                            <a href="{{ route('author.create') }}" class="btn btn-primary float-right">Tambih</a>
+                            Data Book
+                            <a href="{{ route('book.create') }}" class="btn btn-primary float-right">Tambih</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -78,28 +78,35 @@
                                     <thead>
                                         <tr>
                                             <th>Nomor</th>
-                                            <th>Nami</th>
+                                            <th>Title</th>
+                                            <th>Author_id</th>
+                                            <th>Amount</th>
+                                            <th>Cover</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @php $no=1; @endphp
-                                        @foreach ($author as $data)
+                                        @foreach ($book as $data)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $data->name }}</td>
+                                                <td>{{ $data->title }}</td>
+                                                <td>{{ $data->author->name }}</td>
+                                                <td>{{ $data->amount }}</td>
+                                                <td><img src="{{ $data->image() }}" alt=""
+                                                        style="width:150px; height:150px;" alt="Cover"></td>
                                                 <td>
-                                                    <form action="{{ route('author.destroy', $data->id) }}"
+                                                    <form action="{{ route('book.destroy', $data->id) }}"
                                                         method="post">
                                                         @method('delete')
                                                         @csrf
 
-                                                        <a href="{{ route('author.edit', $data->id) }}"
+                                                        <a href="{{ route('book.edit', $data->id) }}"
                                                             class="btn btn-success float-right">Rubah</a>
-                                                        <a href="{{ route('author.show', $data->id) }}"
+                                                        <a href="{{ route('book.show', $data->id) }}"
                                                             class="btn btn-warning float-right">Tampil</a>
                                                         <button type="submit" class="btn btn-danger"
-                                                            onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
+                                                            onclick="return confirm('Hapus wae ie?');">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
